@@ -16,7 +16,6 @@ public class Define
 		Idle,
 		Moving,
 		Run,
-		Jump,
 		Attack,
 		Skill,
 		Defence,
@@ -67,5 +66,11 @@ public class Define
 		QuarterView,
 		QuarterViewManual,
 		EventView,
+	}
+
+	public enum ItemType
+	{
+		Field,
+		Potion,
 	}
 }
