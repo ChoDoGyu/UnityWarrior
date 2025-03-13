@@ -43,9 +43,22 @@ public class PlayerStat : Stat
 
 		SetStat(1);
 		_exp = 0;
-		_defence = 5;
+		_defence = 0;
 		_moveSpeed = 8.0f;
 		_gold = 0;
+	}
+
+	public override void OnAttacked(Stat attacker)
+	{
+		if (GetComponent<BaseController>().State == Define.State.Defence) return;
+		int damage = Mathf.Max(0, attacker.Attack - Defence);
+		Hp -= damage;
+
+		if (Hp <= 0)
+		{
+			Hp = 0;
+			OnDead(attacker);
+		}
 	}
 
 	public void SetStat(int level)
@@ -58,8 +71,18 @@ public class PlayerStat : Stat
 		_attack = stat.attack;
 	}
 
+	public void SetStat(int level, int exp, int gold, int hp)
+	{
+		SetStat(level);
+		Exp = exp;
+		Gold = gold;
+		Hp = hp;
+	}
+
 	protected override void OnDead(Stat attacker)
 	{
 		Debug.Log("Player Dead");
+
+		GetComponent<PlayerController>().State = Define.State.Die;
 	}
 }

@@ -31,19 +31,18 @@ namespace Data
 			return dict;
 		}
 	}
-
 	#endregion
 
 	#region Item
-	[SerializeField]
+	[Serializable]
 	public class Item
 	{
 		public int number;
 		public string name;
-		public Define.ItemType type;
+		public int type;
 	}
 
-	[SerializeField]
+	[Serializable]
 	public class ItemData : ILoader<int, Item>
 	{
 		public List<Item> items = new List<Item>();
