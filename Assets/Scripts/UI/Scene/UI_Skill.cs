@@ -13,6 +13,7 @@ public class UI_Skill : MonoBehaviour
 
 	public Test test;
 
+
     void Start()
     {
         

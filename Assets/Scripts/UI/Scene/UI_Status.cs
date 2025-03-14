@@ -11,6 +11,7 @@ public class UI_Status : UI_Scene
 		Exp,
 	}
 
+
 	enum Texts
 	{
 		LevelText,

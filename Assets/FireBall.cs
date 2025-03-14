@@ -45,3 +45,4 @@ public class FireBall : MonoBehaviour
 		Managers.Pool.Push(GetComponent<Poolable>());
 	}
 }
+

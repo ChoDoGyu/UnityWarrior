@@ -13,6 +13,7 @@ public class UI_Title : UI_Scene
 		ExitButton,
 	}
 
+
 	public override void Init()
 	{
 		base.Init();

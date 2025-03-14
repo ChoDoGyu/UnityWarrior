@@ -9,3 +9,4 @@ public class UI_BillBoard : MonoBehaviour
 		transform.forward = Camera.main.transform.forward;
 	}
 }
+

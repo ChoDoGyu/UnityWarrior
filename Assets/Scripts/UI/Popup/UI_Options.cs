@@ -13,6 +13,7 @@ public class UI_Options : UI_Popup
 		FbxSlider,
 	}
 
+
 	enum Texts
 	{
 		BgmValueText,

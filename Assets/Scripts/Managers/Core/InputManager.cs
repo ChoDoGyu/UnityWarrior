@@ -13,6 +13,7 @@ public class InputManager
 	bool _pressed = false;
 	float _pressedTime = 0;
 
+
 	public void OnUpdate()
 	{
 		/*if (EventSystem.current.IsPointerOverGameObject())

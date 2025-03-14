@@ -28,6 +28,7 @@ public class SceneManagerEx
 		return name;
 	}
 
+
 	public void Clear()
 	{
 		CurrentScene.Clear();

@@ -39,6 +39,7 @@ public class SoundManager
 
 	}
 
+
 	public void Clear()
 	{
 		foreach (AudioSource audioSource in _audioSources)

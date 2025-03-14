@@ -58,3 +58,4 @@ public class QuestManager
 		questCount = 0;
 	}
 }
+

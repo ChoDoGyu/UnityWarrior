@@ -20,6 +20,7 @@ public class UI_Attack : UI_Scene
 		Defence,
 	}
 
+
 	enum Images
 	{
 		Cooldown1,

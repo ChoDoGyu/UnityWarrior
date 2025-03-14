@@ -13,6 +13,7 @@ public class UI_Menu : UI_Scene
 		Setting,
 	}
 
+
 	public override void Init()
 	{
 		base.Init();

@@ -10,6 +10,7 @@ public class UIManager
 	Stack<UI_Popup> _popupStack = new Stack<UI_Popup>();
 	UI_Scene _sceneUI = null;
 
+
 	public GameObject Root
 	{
 		get
@@ -77,7 +78,7 @@ public class UIManager
 
 		return sceneUI;
 	}
-
+	
 	public T ShowPopupUI<T>(string name = null) where T : UI_Popup
 	{
 		if (string.IsNullOrEmpty(name))

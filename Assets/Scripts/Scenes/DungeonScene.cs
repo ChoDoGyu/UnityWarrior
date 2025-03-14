@@ -10,6 +10,7 @@ public class DungeonScene : BaseScene
 		Managers.Game.SaveStat();
 	}
 
+
 	protected override void Init()
 	{
 		base.Init();

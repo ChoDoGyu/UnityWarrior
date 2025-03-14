@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+
 public class UI_HPBar : UI_Base
 {
 	enum GameObjects

@@ -6,3 +6,4 @@ public class JoystickValue : MonoBehaviour
 {
 	public Vector2 joyTouch;
 }
+

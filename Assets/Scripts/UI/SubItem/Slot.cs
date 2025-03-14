@@ -14,6 +14,7 @@ public class Slot : MonoBehaviour
 	[SerializeField]
 	private GameObject _countImage;
 
+
 	private void SetColor(float alpha)
 	{
 		Color color = _itemImage.color;

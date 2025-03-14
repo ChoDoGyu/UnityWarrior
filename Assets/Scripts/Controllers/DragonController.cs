@@ -23,6 +23,7 @@ public class DragonController : BaseController
 	[SerializeField]
 	ParticleSystem _fireSpecial;
 
+
 	public override Define.State State
 	{
 		get { return _state; }

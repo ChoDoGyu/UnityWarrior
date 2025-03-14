@@ -9,6 +9,7 @@ public class LoadingScene : BaseScene
 		//throw new System.NotImplementedException();
 	}
 
+
 	protected override void Init()
 	{
 		base.Init();

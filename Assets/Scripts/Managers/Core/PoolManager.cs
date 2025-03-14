@@ -67,6 +67,7 @@ public class PoolManager
 	Dictionary<string, Pool> _pool = new Dictionary<string, Pool>();
 	Transform _root;        // GameObject, Transform 무관
 
+
 	public void Init()
 	{
 		if (_root == null)

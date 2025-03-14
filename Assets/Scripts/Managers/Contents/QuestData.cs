@@ -13,3 +13,4 @@ public class QuestData
 		npcId = npc;
 	}
 }
+

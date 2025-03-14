@@ -28,7 +28,6 @@ public class Npc : MonoBehaviour
 				}
 				else
 				{
-					
 					_dialog.gameObject.SetActive(true);
 				}
 
@@ -36,3 +35,4 @@ public class Npc : MonoBehaviour
 		}
 	}
 }
+

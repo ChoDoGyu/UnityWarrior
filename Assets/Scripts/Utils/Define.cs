@@ -84,3 +84,4 @@ public class Define
 		PasswordDoor,
 	}
 }
+

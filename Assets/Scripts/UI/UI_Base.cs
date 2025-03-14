@@ -17,6 +17,7 @@ public abstract class UI_Base : MonoBehaviour
 		Init();
     }
 
+
 	protected void Bind<T>(Type type) where T : UnityEngine.Object
 	{
 		string[] names = Enum.GetNames(type);

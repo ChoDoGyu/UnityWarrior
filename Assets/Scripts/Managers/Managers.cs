@@ -50,6 +50,7 @@ public class Managers : MonoBehaviour
 	public static UIManager UI { get { return Instance._ui; } }
 	#endregion
 
+
 	void Start()
 	{
 		Init();

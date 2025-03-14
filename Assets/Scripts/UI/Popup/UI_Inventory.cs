@@ -11,6 +11,7 @@ public class UI_Inventory : UI_Popup
 		GridPanel,
 	}
 
+
 	enum Texts
 	{
 		GoldText,

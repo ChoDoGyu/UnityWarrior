@@ -13,6 +13,7 @@ public class TestScene : BaseScene
 		////Managers.Game._monsters.Clear();
 	}
 
+
 	protected override void Init()
 	{
 		base.Init();

@@ -14,6 +14,7 @@ public class UI_Loading : UI_Scene
 		Fill,
 	}
 
+
 	public override void Init()
 	{
 		base.Init();

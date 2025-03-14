@@ -20,3 +20,4 @@ public class BossEvent : MonoBehaviour
 		this.enabled = false;
 	}
 }
+

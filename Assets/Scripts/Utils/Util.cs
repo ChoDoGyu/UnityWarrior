@@ -63,3 +63,4 @@ public class Util
 		return animator.GetCurrentAnimatorStateInfo(0).IsName(name) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f;
 	}
 }
+
