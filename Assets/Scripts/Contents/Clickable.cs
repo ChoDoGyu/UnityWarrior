@@ -13,27 +13,31 @@ public class Clickable : MonoBehaviour
 
 	public void OnClick()
 	{
-		if (type == Define.ClickableType.PasswordDoor)
-		{
-			Managers.UI.ShowPopupUI<UI_Number>();
-			if (GetComponent<Door>()._isOpen) isTouch = true;
-		}
-		else
-		{
-			UI_Event ev = Managers.UI.ShowPopupUI<UI_Event>();
-			ev.SetId(GetComponent<ObjData>().id);
-			if (!isCanTouchAgain && isTouch) ev.SetIndex(1);
-			Managers.Sound.Play("Sfx/QuestOk", Define.Sound.Effect);
-			if (!isTouch)
-			{
-				switch (type)
-				{
-					case Define.ClickableType.Table:
-						Managers.Game.GetPlayer().GetComponent<PlayerInven>().AddItem(1);
-						break;
-				}
-			}
-			isTouch = true;
-		}
+        if (type == Define.ClickableType.PasswordDoor)
+        {
+            Managers.UI.ShowPopupUI<UI_Number>();
+            if (GetComponent<Door>()._isOpen) isTouch = true;
+        }
+        else if (type == Define.ClickableType.Vendor)
+        {
+            Managers.UI.ShowPopupUI<UI_Shop>();
+        }
+        else
+        {
+            UI_Event ev = Managers.UI.ShowPopupUI<UI_Event>();
+            ev.SetId(GetComponent<ObjData>().id);
+            if (!isCanTouchAgain && isTouch) ev.SetIndex(1);
+            Managers.Sound.Play("Sfx/QuestOk", Define.Sound.Effect);
+            if (!isTouch)
+            {
+                switch (type)
+                {
+                    case Define.ClickableType.Table:
+                        Managers.Game.GetPlayer().GetComponent<PlayerInven>().AddItem(10);
+                        break;
+                }
+            }
+            isTouch = true;
+        }
 	}
 }

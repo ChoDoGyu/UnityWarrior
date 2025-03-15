@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class TitleScene : BaseScene
 {
-	public override void Clear()
-	{
-		//throw new System.NotImplementedException();
-	}
+    public override void Clear()
+    {
+        //throw new System.NotImplementedException();
+    }
 
+    protected override void Init()
+    {
+        base.Init();
 
-	protected override void Init()
-	{
-		base.Init();
+        SceneType = Define.Scene.TitleScene;
 
-		SceneType = Define.Scene.TitleScene;
-
-		Managers.UI.ShowSceneUI<UI_Title>();
-		Managers.Sound.Play("Bgm/Title", Define.Sound.Bgm);
-	}
+        Managers.UI.ShowSceneUI<UI_Title>();
+        Managers.Sound.Play("Bgm/Title", Define.Sound.Bgm);
+    }
 }

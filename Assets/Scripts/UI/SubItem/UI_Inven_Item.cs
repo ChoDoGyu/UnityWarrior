@@ -5,33 +5,46 @@ using UnityEngine.UI;
 
 public class UI_Inven_Item : UI_Base
 {
-	enum Images
-	{
-		ItemImage,
-	}
+    enum Images
+    {
+        ItemImage,
+        ItemCountImage,
+    }
 
-	string _name;
+    enum Texts
+    {
+        ItemCountText,
+    }
 
-	public override void Init()
-	{
-		Bind<Image>(typeof(Images));
-		//Get<GameObject>((int)GameObjects.ItemNameText).GetComponent<Text>().text = _name;
+    string _name;
 
-		Get<Image>((int)Images.ItemImage).gameObject.BindEvent((PointerEventData) => { Debug.Log($"아이템 클릭! {_name}"); });
-	}
+    public override void Init()
+    {
+        Bind<Image>(typeof(Images));
+        Bind<Text>(typeof(Texts));
 
-	public void SetInfo(int index)
-	{
-		Data.Item item = Managers.Data.ItemDict[index];
-		Sprite sp = Managers.Resource.Load<Sprite>("Textures/Icons/Inventory/" + item.image);
-		if (sp != null)
-		{
-			Color color = Get<Image>((int)Images.ItemImage).color;
-			color.a = 1;
 
-			Get<Image>((int)Images.ItemImage).sprite = sp;
-			Get<Image>((int)Images.ItemImage).color = color;
-		}
-	}
+
+        Get<Image>((int)Images.ItemCountImage).gameObject.SetActive(false);
+    }
+
+    public void SetInfo(Data.Inven inven)
+    {
+        Data.Item item = Managers.Data.ItemDict[inven.index];
+        Sprite sp = Managers.Resource.Load<Sprite>("Textures/Icons/Inventory/" + item.image);
+        if (sp != null)
+        {
+            Color color = Get<Image>((int)Images.ItemImage).color;
+            color.a = 1;
+
+            Get<Image>((int)Images.ItemImage).sprite = sp;
+            Get<Image>((int)Images.ItemImage).color = color;
+        }
+
+        if (inven.amount > 1)
+        {
+            Get<Image>((int)Images.ItemCountImage).gameObject.SetActive(true);
+            Get<Text>((int)Texts.ItemCountText).text = inven.amount.ToString();
+        }
+    }
 }
-
