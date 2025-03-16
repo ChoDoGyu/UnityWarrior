@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Clickable : MonoBehaviour
 {
-	[SerializeField]
-	Define.ClickableType type = Define.ClickableType.None;
+    [SerializeField]
+    Define.ClickableType type = Define.ClickableType.None;
 
-	public bool isCanTouchAgain = true;
-	public bool isTouch = false;
+    public bool isCanTouchAgain = true;
+    public bool isTouch = false;
 
-	public void OnClick()
-	{
+    public void OnClick()
+    {
         if (type == Define.ClickableType.PasswordDoor)
         {
             Managers.UI.ShowPopupUI<UI_Number>();
@@ -39,5 +38,5 @@ public class Clickable : MonoBehaviour
             }
             isTouch = true;
         }
-	}
+    }
 }
