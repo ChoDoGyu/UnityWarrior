@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class JoystickValue : MonoBehaviour
 {
-    public Vector2 joyTouch;
+	public Vector2 joyTouch;
 }

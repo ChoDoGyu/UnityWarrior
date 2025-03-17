@@ -6,11 +6,11 @@ public class PasswordDoor : MonoBehaviour
 {
     void Start()
     {
-
+        
     }
 
     void Update()
     {
-
+        
     }
 }

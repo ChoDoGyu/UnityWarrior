@@ -6,96 +6,96 @@ using UnityEngine.UI;
 
 public class UI_Dialog : UI_Popup
 {
-    enum Texts
-    {
-        DialogText,
-    }
+	enum Texts
+	{
+		DialogText,
+	}
 
-    enum Images
-    {
-        ConfirmButton,
-        CancelButton,
-    }
-    int _id = -1;
-    int _index;
-    int _maxIndex;
-    bool _isQuest = false;
+	enum Images
+	{
+		ConfirmButton,
+		CancelButton,
+	}
+	int _id = -1;
+	int _index;
+	int _maxIndex;
+	bool _isQuest = false;
 
-    int questTalkIndex;
+	int questTalkIndex;
 
-    public override void Init()
-    {
-        base.Init();
+	public override void Init()
+	{
+		base.Init();
 
-        Bind<Text>(typeof(Texts));
-        Bind<Image>(typeof(Images));
+		Bind<Text>(typeof(Texts));
+		Bind<Image>(typeof(Images));
 
-        Get<Image>((int)Images.CancelButton).gameObject.BindEvent(OnButtonClicked_Cancel);
-        Get<Image>((int)Images.ConfirmButton).gameObject.BindEvent(OnButtonClicked_Confirm);
-        Get<Image>((int)Images.CancelButton).gameObject.BindEvent(OnButtonClicked_Close);
-        Get<Image>((int)Images.CancelButton).gameObject.SetActive(false);
-    }
+		Get<Image>((int)Images.CancelButton).gameObject.BindEvent(OnButtonClicked_Cancel);
+		Get<Image>((int)Images.ConfirmButton).gameObject.BindEvent(OnButtonClicked_Confirm);
+		Get<Image>((int)Images.CancelButton).gameObject.BindEvent(OnButtonClicked_Close);
+		Get<Image>((int)Images.CancelButton).gameObject.SetActive(false);
+	}
 
-    private void OnEnable()
-    {
-        if (_id == -1) return;
-        CheckTalkIndex();
-    }
+	private void OnEnable()
+	{
+		if (_id == -1) return;
+		CheckTalkIndex();
+	}
 
-    void CheckTalkIndex()
-    {
-        questTalkIndex = questTalkIndex = Managers.Quest.GetQuestTalkIndex(_id);
-        if (Managers.Quest.IsNotEndQuest(_id) || !_isQuest)
-        {
-            _maxIndex = Managers.Talk.GetTalkLength(_id + questTalkIndex);
-            string talk = Managers.Talk.GetTalk(_id + questTalkIndex, 0);
-            Get<Text>((int)Texts.DialogText).text = talk;
-            Get<Image>((int)Images.CancelButton).gameObject.SetActive(false);
-            _isQuest = true;
-            Managers.Quest.CheckQuest(_id);
-        }
-        else
-        {
-            Debug.Log("끝!");
-            string talk = Managers.Talk.GetTalk(_id, 0);
-            Get<Text>((int)Texts.DialogText).text = talk;
-            Get<Image>((int)Images.CancelButton).gameObject.SetActive(false);
-        }
-    }
+	void CheckTalkIndex()
+	{
+		questTalkIndex = questTalkIndex = Managers.Quest.GetQuestTalkIndex(_id);
+		if (Managers.Quest.IsNotEndQuest(_id) || !_isQuest)
+		{
+			_maxIndex = Managers.Talk.GetTalkLength(_id + questTalkIndex);
+			string talk = Managers.Talk.GetTalk(_id + questTalkIndex, 0);
+			Get<Text>((int)Texts.DialogText).text = talk;
+			Get<Image>((int)Images.CancelButton).gameObject.SetActive(false);
+			_isQuest = true;
+			Managers.Quest.CheckQuest(_id);
+		}
+		else
+		{
+			Debug.Log("끝!");
+			string talk = Managers.Talk.GetTalk(_id, 0);
+			Get<Text>((int)Texts.DialogText).text = talk;
+			Get<Image>((int)Images.CancelButton).gameObject.SetActive(false);
+		}
+	}
 
-    public void SetId(int id)
-    {
-        _id = id;
-        _index = 0;
-        CheckTalkIndex();
-    }
+	public void SetId(int id)
+	{
+		_id = id;
+		_index = 0;
+		CheckTalkIndex();
+	}
 
-    public void OnButtonClicked_Confirm(PointerEventData data)
-    {
-        _index++;
-        if (_maxIndex > _index)
-        {
-            string talk = Managers.Talk.GetTalk(_id + questTalkIndex, _index);
-            if (talk != null)
-            {
-                Get<Text>((int)Texts.DialogText).text = talk;
-            }
-            if (_maxIndex - 1 == _index) Get<Image>((int)Images.CancelButton).gameObject.SetActive(true);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-    }
+	public void OnButtonClicked_Confirm(PointerEventData data)
+	{
+		_index++;
+		if (_maxIndex > _index)
+		{
+			string talk = Managers.Talk.GetTalk(_id + questTalkIndex, _index);
+			if (talk != null)
+			{
+				Get<Text>((int)Texts.DialogText).text = talk;
+			}
+			if (_maxIndex - 1 == _index) Get<Image>((int)Images.CancelButton).gameObject.SetActive(true);
+		}
+		else
+		{
+			gameObject.SetActive(false);
+		}
+	}
 
-    public void OnButtonClicked_Close(PointerEventData data)
-    {
-        gameObject.SetActive(false);
-    }
+	public void OnButtonClicked_Close(PointerEventData data)
+	{
+		gameObject.SetActive(false);
+	}
 
-    public void OnButtonClicked_Cancel(PointerEventData data)
-    {
-        Managers.Quest.questActionIndex = 0;
-        Managers.UI.ClosePopupUI();
-    }
+	public void OnButtonClicked_Cancel(PointerEventData data)
+	{
+		Managers.Quest.questActionIndex = 0;
+		Managers.UI.ClosePopupUI();
+	}
 }
